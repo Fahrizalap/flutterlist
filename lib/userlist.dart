@@ -80,9 +80,13 @@ class _UserListState extends State<UserList> {
                           Email.text.isEmpty)
                         throw new Exception("Isian tidak boleh kosong");
 
+                      int umur = int.parse(Umur.text);
+
                       if (btnSimpanText == "Simpan") {
-                        daftarUser.add(UserData(
-                            Nama.text, int.parse(Umur.text), Email.text));
+                        for (int i = 0; i < int.parse(Umur.text); i++) {
+                          daftarUser.add(UserData("${i + 1}. ${Nama.text}",
+                              int.parse(Umur.text), Email.text));
+                        }
                       } else {
                         UserData userData = daftarUser[indexDipilih];
                         userData.nama = Nama.text;
